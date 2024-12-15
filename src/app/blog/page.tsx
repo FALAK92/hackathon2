@@ -115,8 +115,8 @@ const BlogPage: React.FC = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Banner label='Blog' image='/bg.png'/>
+    <div className="container mt-auto px-4 py-4">
+      <Banner label='Blog' image='/bg.png' logo="/images/header/logo.png"/>
       <div className="grid md:grid-cols-[3fr,1fr] gap-8">
         {/* Main Blog Posts Section */}
         <div>

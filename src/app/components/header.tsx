@@ -43,7 +43,9 @@ const Navbar: React.FC = () => {
             <CiUser className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
             <CiSearch className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
             <CiHeart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
+            <Link href={"/cart"}>
             <CiShoppingCart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
+            </Link>
           </div>
 
           {/* Hamburger Menu Button */}
@@ -99,7 +101,9 @@ const Navbar: React.FC = () => {
               <CiUser className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
               <CiSearch className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
               <CiHeart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
+              <Link href={"/cart"}>
               <CiShoppingCart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
+              </Link>
             </div>
           </div>
         </div>

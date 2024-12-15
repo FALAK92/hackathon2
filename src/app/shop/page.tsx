@@ -166,8 +166,8 @@ const Shop: React.FC = () => {
   const [sortBy, setSortBy] = useState('default');
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Banner label='Shop' image='/bg.png'/>
+    <div className="container mt-auto px-4 py-4">
+      <Banner label='Shop' image='/bg.png' logo="/images/header/logo.png"/>
 
       <div className="flex justify-between items-center mb-6 bg-[#F9F1E7]">
         <div>
