@@ -1,115 +1,173 @@
-"use client";
-
-import React, { useState } from "react";
+'use client';
+import Image from "next/image";
 import Link from "next/link";
-import { CiHeart, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
-import { FiMenu, FiX } from "react-icons/fi";
+import { useState } from "react";
+import ShoppingCart from "../components/cartbar";
+import { FaBars } from "react-icons/fa";
 
-const Navbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+function Navbar() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img
-              src="/images/header/logo.png"
-              alt="Logo"
-              className="w-10 h-10"
-            />
-            <span className="text-2xl font-bold text-black">Furniro</span>
-          </div>
+    <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-24 py-4 bg-white text-black h-[100px]">
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex space-x-6">
-            <Link href="/" className="text-black hover:text-[#B88E2F]">
-              Home
-            </Link>
-            <Link href="/shop" className="text-black hover:text-[#B88E2F]">
-              Shop
-            </Link>
-            <Link href="/blog" className="text-black hover:text-[#B88E2F]">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-black hover:text-[#B88E2F]">
-              Contact
-            </Link>
-          </div>
-
-          {/* Icons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <CiUser className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-            <CiSearch className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-            <CiHeart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-            <Link href={"/cart"}>
-            <CiShoppingCart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-            </Link>
-          </div>
-
-          {/* Hamburger Menu Button */}
-          <div className="md:hidden flex items-center">
-            {menuOpen ? (
-              <FiX
-                className="w-6 h-6 text-black cursor-pointer"
-                onClick={() => setMenuOpen(false)}
-              />
-            ) : (
-              <FiMenu
-                className="w-6 h-6 text-black cursor-pointer"
-                onClick={() => setMenuOpen(true)}
-              />
-            )}
-          </div>
-        </div>
+      {/* Logo Section (Left aligned) */}
+      <div className="flex items-center justify-start space-x-4">
+        <Link href="/">
+          <Image
+            src="/images/header/logo.png"  // Apni logo ki image yahan den
+            alt="Logo"
+            width={50}      // Logo ka size adjust karein
+            height={50}
+          />
+        </Link>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#FFF3E3] shadow-lg">
-          <div className="flex flex-col items-center space-y-4 py-4">
-            <Link
-              href="/"
-              className="text-black hover:text-[#B88E2F] text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
+      {/* Desktop Menu (Center aligned) */}
+      <ul className="hidden md:flex space-x-[72px] flex-grow justify-center">
+        <li>
+          <Link href="/" className="text-black hover:text-gray-600 font-medium text-[20px]">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/shop" className="text-black hover:text-gray-600 font-medium text-[20px]">
+            Shop
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog" className="text-black hover:text-gray-600 font-medium text-[20px]">
+            Blog
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" className="text-black hover:text-gray-600 font-medium text-[20px]">
+            Contact
+          </Link>
+        </li>
+      </ul>
+
+      {/* Desktop Icons Section (Right aligned) */}
+      <div className="hidden md:flex space-x-[30px] items-center">
+        <Link href="/account">
+          <Image
+            src="/images/header/user.png"
+            alt="Account"
+            width={28}
+            height={28}
+            className="hover:text-gray-600"
+          />
+        </Link>
+        <Image
+          src="/images/header/search.png"
+          alt="Search"
+          width={28}
+          height={28}
+          className="hover:text-gray-600"
+        />
+        <Image
+          src="/images/header/heart.png"
+          alt="Heart"
+          width={28}
+          height={28}
+          className="hover:text-gray-600"
+        />
+        <button onClick={toggleCart}>
+          <Image
+            src="/images/header/cart.png"
+            alt="Cart"
+            width={28}
+            height={28}
+            className="hover:text-gray-600"
+          />
+        </button>
+      </div>
+
+      {/* Mobile Menu Icon (Toggles on Mobile) */}
+      <button className="block md:hidden" onClick={toggleMenu}>
+        {isMenuOpen ? "X" : <FaBars />}
+      </button>
+
+      {/* Mobile Menu (Mobile version) */}
+      {isMenuOpen && (
+        <ul className="absolute top-[100px] left-0 w-full bg-[#FFF3E3] flex flex-col space-y-4 px-6 py-4 z-50 shadow-md md:hidden">
+          <li>
+            <Link href="/" className="text-black hover:text-gray-600 font-medium text-[16px]" onClick={toggleMenu}>
               Home
             </Link>
-            <Link
-              href="/shop"
-              className="text-black hover:text-[#B88E2F] text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
+          </li>
+          <li>
+            <Link href="/shop" className="text-black hover:text-gray-600 font-medium text-[16px]" onClick={toggleMenu}>
               Shop
             </Link>
-            <Link
-              href="/blog"
-              className="text-black hover:text-[#B88E2F] text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
+          </li>
+          <li>
+            <Link href="/blog" className="text-black hover:text-gray-600 font-medium text-[16px]" onClick={toggleMenu}>
               Blog
             </Link>
-            <Link
-              href="/contact"
-              className="text-black hover:text-[#B88E2F] text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
+          </li>
+          <li>
+            <Link href="/contact" className="text-black hover:text-gray-600 font-medium text-[16px]" onClick={toggleMenu}>
               Contact
             </Link>
-            <div className="flex items-center space-x-4">
-              <CiUser className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-              <CiSearch className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-              <CiHeart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-              <Link href={"/cart"}>
-              <CiShoppingCart className="w-6 h-6 text-black cursor-pointer hover:text-[#B88E2F]" />
-              </Link>
-            </div>
+          </li>
+
+          {/* Icons Section in Mobile */}
+          <div className="flex space-x-[30px] justify-end">
+            <Link href="/account">
+              <Image
+                src="/images/header/user.png"
+                alt="Account"
+                width={24}
+                height={24}
+                className="hover:text-gray-600"
+              />
+            </Link>
+            <Image
+              src="/images/header/search.png"
+              alt="Search"
+              width={24}
+              height={24}
+              className="hover:text-gray-600"
+            />
+            <Image
+              src="/images/header/heart.png"
+              alt="Heart"
+              width={24}
+              height={24}
+              className="hover:text-gray-600"
+            />
+            <button onClick={toggleCart}>
+              <Image
+                src="/images/header/cart.png"
+                alt="Cart"
+                width={24}
+                height={24}
+                className="hover:text-gray-600"
+              />
+            </button>
           </div>
-        </div>
+
+          {/* Shopping Cart Sidebar in Mobile */}
+          <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} />
+        </ul>
       )}
-    </nav>
+
+      {/* Shopping Cart Sidebar (Desktop version) */}
+      <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} />
+    </div>
   );
-};
+}
 
 export default Navbar;
+
+

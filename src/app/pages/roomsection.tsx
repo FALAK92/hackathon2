@@ -10,7 +10,7 @@ const RoomSection = () => {
     { src: "/images/room/room1.png", label: "1_Bed Room", description: "Inner Peace" },
     { src: "/images/room/room2.png", label: "2_Bed Room", description: "Serenity" },
     { src: "/images/room/room3.png", label: "3_Bed Room", description: "Calm Haven" },
-    { src: "/images/room/room4.png", label: "4_Bed Room", description: "Tranquil Space" },
+    // { src: "/images/room/room4.png", label: "4_Bed Room", description: "Tranquil Space" },
   ];
 
   const handleNext = () => {
@@ -24,7 +24,7 @@ const RoomSection = () => {
   };
 
   return (
-    <div className="w-full mx-auto p-4 mt-10 bg-[#FCF8F3]">
+    <div className="w-full mx-auto p-9 mt-10 bg-[#FCF8F3]">
       <div className="flex flex-col lg:flex-row justify-between items-center">
         {/* Left Side: Heading, Paragraph, and Button */}
         <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
@@ -34,7 +34,7 @@ const RoomSection = () => {
             inspirations
           </h2>
           <p className="text-gray-600 mb-6">
-            Discover amazing room designs and inspiration for your next home project.
+            Discover amazing room designs and inspiration<br></br> for your next home project.
             From modern minimalist rooms to elegant.
           </p>
           <button className="bg-[#B88E2F] text-white px-6 py-2 font-semibold flex items-center space-x-2">
@@ -43,7 +43,7 @@ const RoomSection = () => {
         </div>
 
         {/* Right Side: Carousel */}
-        <div className="lg:w-1/2 w-full relative">
+        <div className="lg:w-full  relative">
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-lg">
             {/* Carousel Images */}
             <div className="absolute inset-0 flex transition-all duration-500 ease-in-out gap-4">
@@ -51,14 +51,14 @@ const RoomSection = () => {
                 <div
                   key={index}
                   className={`relative w-full transition-all duration-500 ease-in-out ${
-                    currentIndex === index ? "h-[500px] z-10" : "h-[300px] z-0"
+                    currentIndex === index ? "h-[500px] w-[1000px] z-10" : "h-[400px] z-0"
                   }`}
                 >
                   <Image
                     src={image.src}
                     alt={`Room ${index + 1}`}
-                    width={1000}
-                    height={500}
+                    width={2000}
+                    height={600}
                     className="w-full h-full object-cover"
                   />
                   {/* Image Caption */}

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -109,5 +109,8 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
+
 
 
