@@ -1,11 +1,9 @@
 "use client"
 import React from "react";
-import { useRouter } from "next/navigation";
 import Banner from "../components/banner";
 import Features from "../components/feature";
 
 const Checkout = () => {
-  const router = useRouter();
 
   return (
     <div className="container m-auto px-4 py-4">
