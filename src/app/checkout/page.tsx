@@ -1,7 +1,6 @@
 "use client"
 import React from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link"; // Link import karna zaroori hai
 import Banner from "../components/banner";
 import Features from "../components/feature";
 

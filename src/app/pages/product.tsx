@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { products } from "../lib/constant";
 import { FaShareAlt, FaExchangeAlt, FaHeart } from "react-icons/fa";
-import { Router } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const OurProduct = () => {
