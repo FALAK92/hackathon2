@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 function Range() {
   const data = [
@@ -27,7 +28,9 @@ function Range() {
         {data.map((item, index) => (
           <div key={index}>
             <div>
-              <img
+              <Image
+              width={480}
+              height={480}
                 src={item.imageUrl}
                 alt="category image"
                 className="h-[480px] rounded-[10px] object-cover"

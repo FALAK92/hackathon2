@@ -15,7 +15,7 @@ const Cart = () => {
     <div className="container m-auto px-4 py-4">
       {/* Banner Section */}
       <div>
-        <Banner label="Cart" image="/bg.png" logo="/images/header/logo.png" />
+        <Banner label="Cart" image="/images/bg.png" logo="/images/header/logo.png" />
       </div>
 
       {/* Cart Content */}

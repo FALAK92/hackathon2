@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Heart, Share2, BarChart2, ShoppingCart } from 'lucide-react';
 import Banner from '../components/banner';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 
 // Product Type Definition
@@ -92,10 +94,12 @@ const initialProducts: Product[] = [
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const route = useRouter();
 
   return (
     
     <div 
+    onClick={()=> route.push('/singleproduct')}
       className="bg-white shadow-md rounded-lg overflow-hidden relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -103,8 +107,10 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     
       {/* Product Image */}
       <div className="relative">
-        <img 
-          src={product.imageUrl} 
+        <Image
+        width={300}
+        height={300}
+          src={product.imageUrl !== undefined ? product.imageUrl :  '/images/constant/p1.png'} 
           alt={product.name} 
           className="w-full h-64 object-cover"
         />
@@ -167,7 +173,7 @@ const Shop: React.FC = () => {
 
   return (
     <div className="container mt-auto px-4 py-4">
-      <Banner label='Shop' image='/bg.png' logo="/images/header/logo.png"/>
+      <Banner label='Shop' image='/images/bg.png' logo="/images/header/logo.png"/>
 
       <div className="flex justify-between items-center mb-6 bg-[#F9F1E7]">
         <div>

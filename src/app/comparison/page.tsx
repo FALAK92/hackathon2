@@ -21,7 +21,7 @@ const Comparison = () => {
   return (
     <div className="container m-auto px-4 py-4">
       {/* Banner Section */}
-      <Banner label="comparison" image="/bg.png" logo="/images/header/logo.png" />
+      <Banner label="comparison" image="/images/bg.png" logo="/images/header/logo.png" />
 
       {/* Product Comparison Grid */}
       <div className="grid md:grid-cols-4 xs:grid-cols-2 grid-cols-1 gap-4 p-5">

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const SetUp = () => {
   const images = [
@@ -35,7 +36,9 @@ const SetUp = () => {
                 index % 2 === 0 ? "h-[400px]" : "h-[300px]"
               } rounded-lg overflow-hidden shadow-lg`}
             >
-              <img
+              <Image
+              width={500}
+              height={500}
                 src={src}
                 alt={`Furniture ${index + 1}`}
                 className="w-full h-full object-cover"

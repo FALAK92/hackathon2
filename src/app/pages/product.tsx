@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { products } from "../lib/constant";
 import { FaShareAlt, FaExchangeAlt, FaHeart } from "react-icons/fa";
+import { Router } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const OurProduct = () => {
   const [showAll, setShowAll] = useState(false);
+  const route = useRouter();
 
   const displayedProducts = showAll ? products : products.slice(0, 8);
 
@@ -18,6 +21,7 @@ const OurProduct = () => {
         {displayedProducts.map((product) => (
           <div
             key={product.id}
+            onClick={()=> route.push('/singleproduct')}
             className="relative rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform transform hover:scale-105 duration-300"
           >
             {/* Dynamic Circle for typeValue */}

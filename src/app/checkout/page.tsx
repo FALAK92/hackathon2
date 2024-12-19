@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link"; // Link import karna zaroori hai
 import Banner from "../components/banner";
@@ -13,7 +12,7 @@ const Checkout = () => {
     <div className="container m-auto px-4 py-4">
       {/* Banner Section */}
       <div>
-        <Banner label="Checkout" image="/bg.png" logo="/images/header/logo.png" />
+        <Banner label="Checkout" image="/images/bg.png" logo="/images/header/logo.png" />
       </div>
       <div className="min-h-screen flex justify-center items-center">
         <div className="container mx-auto p-8 mt-6">

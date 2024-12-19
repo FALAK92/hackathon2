@@ -1,9 +1,11 @@
-'use client'
-import React, { useState } from 'react';
-import { ChevronRight, Calendar, User, Tag } from 'lucide-react';
-import Banner from '../components/banner';
+"use client";
+import React, { useState } from "react";
+import { ChevronRight, Calendar, User, Tag } from "lucide-react";
+import Banner from "../components/banner";
+import Image from "next/image";
 
 interface BlogPost {
+  image: string;
   id: number;
   title: string;
   excerpt: string;
@@ -21,59 +23,69 @@ interface BlogCategory {
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: 'Going all-in with millennial design',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-    author: 'Admin',
-    category: 'Wood',
-    date: '14 Oct 2022',
-    imageUrl: '/images/constant/b1.png'
+    title: "Going all-in with millennial design",
+    excerpt:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+    author: "Admin",
+    category: "Wood",
+    date: "14 Oct 2022",
+    imageUrl: "/images/constant/b1.png",
+    image: "/images/constant/b1.png",
   },
   {
     id: 2,
-    title: 'Exploring new ways of decorating',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-    author: 'Admin',
-    category: 'Handmade',
-    date: '14 Oct 2022',
-    imageUrl: '/images/constant/b2.png'
+    title: "Exploring new ways of decorating",
+    excerpt:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+    author: "Admin",
+    category: "Handmade",
+    date: "14 Oct 2022",
+    imageUrl: "/images/constant/b2.png",
+    image: "/images/constant/b2.png",
   },
   {
     id: 3,
-    title: 'Handmade pieces that took time to make',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-    author: 'Admin',
-    category: 'Wood',
-    date: '14 Oct 2022',
-    imageUrl: '/images/constant/b3.png'
-  }
+    title: "Handmade pieces that took time to make",
+    excerpt:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+    author: "Admin",
+    category: "Wood",
+    date: "14 Oct 2022",
+    imageUrl: "/images/constant/b3.png",
+    image: "/images/constant/b3.png",
+  },
 ];
 
 const blogCategories: BlogCategory[] = [
-  { name: 'Crafts', count: 2 },
-  { name: 'Design', count: 8 },
-  { name: 'Handmade', count: 7 },
-  { name: 'Interior', count: 1 },
-  { name: 'Wood', count: 6 }
+  { name: "Crafts", count: 2 },
+  { name: "Design", count: 8 },
+  { name: "Handmade", count: 7 },
+  { name: "Interior", count: 1 },
+  { name: "Wood", count: 6 },
 ];
 
 const recentPosts: BlogPost[] = [
   {
     id: 4,
-    title: 'Modern home in Milan',
-    date: '03 Aug 2022',
-    author: 'Admin',
-    category: 'Interior',
-    excerpt: ''
+    title: "Modern home in Milan",
+    date: "03 Aug 2022",
+    imageUrl: "/images/constant/b4.png",
+    image: "/images/constant/b4.png",
+    author: "Admin",
+    category: "Interior",
+    excerpt: "",
   },
   {
     id: 5,
-    title: 'Colorful office redesign',
-    date: '03 Aug 2022',
-    author: 'Admin',
-    category: 'Design',
-    excerpt: ''
+    title: "Colorful office redesign",
+    date: "03 Aug 2022",
+    imageUrl: "/images/constant/b5.png",
+    image: "/images/constant/b5.png",
+    author: "Admin",
+    category: "Design",
+    excerpt: "",
   },
-  ...blogPosts.slice(0, 3)
+  ...blogPosts.slice(0, 3),
 ];
 
 const BlogPage: React.FC = () => {
@@ -82,9 +94,9 @@ const BlogPage: React.FC = () => {
   const BlogPostCard: React.FC<{ post: BlogPost }> = ({ post }) => (
     <div className="bg-white shadow-md rounded-lg overflow-hidden">
       {post.imageUrl && (
-        <img 
-          src={post.imageUrl} 
-          alt={post.title} 
+        <Image
+          src={post.imageUrl}
+          alt={post.title}
           width={817}
           height={500}
           className="object-cover"
@@ -116,38 +128,40 @@ const BlogPage: React.FC = () => {
 
   return (
     <div className="container mt-auto px-4 py-4">
-      <Banner label='Blog' image='/bg.png' logo="/images/header/logo.png"/>
+      <Banner
+        label="Blog"
+        image="/images/bg.png"
+        logo="/images/header/logo.png"
+      />
       <div className="grid md:grid-cols-[3fr,1fr] gap-8">
         {/* Main Blog Posts Section */}
         <div>
           <div className="flex flex-col justify-center items-center">
-            {blogPosts.map(post => (
+            {blogPosts.map((post) => (
               <BlogPostCard key={post.id} post={post} />
             ))}
           </div>
 
           {/* Pagination */}
           <div className="flex justify-center space-x-2 mt-8">
-            <button 
+            <button
               className="px-4 py-2 bg-gray-200 rounded"
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             >
               Previous
             </button>
-            {[1, 2, 3].map(page => (
+            {[1, 2, 3].map((page) => (
               <button
                 key={page}
                 className={`px-4 py-2 rounded ${
-                  currentPage === page 
-                    ? 'bg-black text-white' 
-                    : 'bg-gray-200'
+                  currentPage === page ? "bg-black text-white" : "bg-gray-200"
                 }`}
                 onClick={() => setCurrentPage(page)}
               >
                 {page}
               </button>
             ))}
-            <button 
+            <button
               className="px-4 py-2 bg-gray-200 rounded"
               onClick={() => setCurrentPage(currentPage + 1)}
             >
@@ -161,9 +175,9 @@ const BlogPage: React.FC = () => {
           {/* Categories */}
           <div className="bg-gray-100 rounded-lg p-6 mb-6">
             <h3 className="text-xl font-bold mb-4">Categories</h3>
-            {blogCategories.map(category => (
-              <div 
-                key={category.name} 
+            {blogCategories.map((category) => (
+              <div
+                key={category.name}
                 className="flex justify-between items-center py-2 border-b last:border-b-0"
               >
                 <span>{category.name}</span>
@@ -177,11 +191,18 @@ const BlogPage: React.FC = () => {
           {/* Recent Posts */}
           <div className="bg-gray-100 rounded-lg p-6">
             <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
-            {recentPosts.map(post => (
-              <div 
-                key={post.id} 
+            {recentPosts.map((post) => (
+              <div
+                key={post.id}
                 className="flex items-center py-3 border-b last:border-b-0"
               >
+                <Image
+                  width={64}
+                  height={64}
+                  src={post.image}
+                  alt={post.title}
+                  className="w-16 h-16 object-cover rounded-lg mr-4"
+                />
                 <div>
                   <h4 className="font-medium text-sm hover:text-gray-600">
                     {post.title}

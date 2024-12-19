@@ -158,7 +158,7 @@ function Navbar() {
           </div>
 
           {/* Shopping Cart Sidebar in Mobile */}
-          <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} />
+          {/* <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} /> */}
         </ul>
       )}
 

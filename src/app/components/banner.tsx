@@ -15,20 +15,24 @@ function Banner(props: BannerInterface) {
       className="bg-[image:var(--image-url)] w-full h-[316px] mb-8 flex flex-col justify-center items-center bg-cover bg-gray-700"
     >
       {/* Logo Section */}
-      <div className="flex justify-center items-center mb-4">
+      <div className="flex flex-center mb-4">
+        
+      </div>
+
+      {/* Label and Navigation */}
+      <div className="flex flex-col justify-center items-center w-full h-full">
+        <div className="flex justify-center w-full ">
         <Image 
           src={props.logo} 
           alt="Logo" 
           width={80} 
           height={80} 
-          className="object-contain"
+          className="object-contain "
         />
-      </div>
-
-      {/* Label and Navigation */}
-      <div className="flex flex-col justify-center items-center w-full h-full">
+        </div>
         <div className="flex justify-center w-full text-5xl">
           {props.label}
+          
         </div>
         <nav className="flex justify-center items-center space-x-4 mt-4">
           <a href="#" className="text-black-600">Home</a>

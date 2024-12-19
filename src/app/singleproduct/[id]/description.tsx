@@ -3,7 +3,7 @@ import React from 'react'
 
 const Description = () => {
   return (
-    <div className='flex flex-col justify-center items-center border-t-2 border-b-2 mt-14 md:mt-28 py-14'>
+    <div className='flex flex-col justify-center items-center border-t-2 border-b-2 py-14'>
           <div className='flex md:gap-6 gap-3 justify-center items-center font-medium md:font-normal text-[13px] md:text-[24px] '>
               <h1>Description</h1>
               <h1 className='text-[#9F9F9F]'>Additional Information</h1>
@@ -19,9 +19,9 @@ const Description = () => {
                    <Image
                   src={'/images/singleproduct/dsofa1.png'}
                       alt=''
-                      height={600}
-                      width={600}
-                      className='w-[400px] h-[400px] md:w-[600px] md:h-[600px]'
+                      height={348}
+                      width={605}
+                      className=''
                       
                   />
               </div>
@@ -29,9 +29,9 @@ const Description = () => {
                    <Image
                   src={'/images/singleproduct/dsofa2.png'}
                       alt=''
-                      height={600}
-                       width={600}
-                      className='w-[400px] h-[400px] md:w-[600px] md:h-[600px]'
+                      height={348}
+                       width={605}
+                      className=''
                   />
               </div>
           </div>

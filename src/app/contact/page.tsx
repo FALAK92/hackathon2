@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
   return (
     <div className="container mt-auto px-4 py-4">
 
-      <Banner label='Contact' image='/bg.png' logo="/images/header/logo.png"/>
+      <Banner label='Contact' image='/images/bg.png' logo="/images/header/logo.png"/>
 
       <h1 className="text-3xl font-bold text-center mb-8 sm:mb-12">Get In Touch With Us</h1>
 
