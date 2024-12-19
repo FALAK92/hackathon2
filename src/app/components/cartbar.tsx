@@ -10,7 +10,7 @@ interface ShoppingCartProps {
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ isCartOpen, toggleCart }) => {
   return (
     <div
-      className={`fixed top-0 right-0 w-[85%] md:w-[400px] h-auto px-4 md:px-7 bg-white shadow-lg transform ${
+      className={`fixed top-0 right-0 w-[100%] md:w-[400px] h-auto px-4 md:px-7 bg-white shadow-lg transform ${
         isCartOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 z-50`}
     >
